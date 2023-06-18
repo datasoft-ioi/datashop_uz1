@@ -1,0 +1,202 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Inter';
+    user-select: none;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.container {
+    margin: auto;
+    width: 1440px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1440px) {
+  .container {
+    margin: auto;
+    width: 1140px;
+  }
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: rgb(255, 255, 255);
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ff2627; 
+  }
+  .bottomBar {
+    display: none;
+  }
+
+  @media screen  and  (max-width : 414px) and (min-width: 360px) {
+    * {
+      max-width: 100%;
+    }
+    .container {
+      width: 100%;
+    }
+    .bottomBar {
+      width: 100%;
+      height: 71px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #E81D1C;
+      position: fixed;
+      bottom: 0;
+      z-index: 100;
+      padding: 0px 10px;
+    }
+    .bottomBar button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 15px;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .shopLenght {
+      min-width: 19px;
+      min-height: 18px;
+      position: absolute;
+      right: 105px;
+      top: 10px;
+      background-color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .shopLenght {
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 12px;
+      color: #E81D1C;
+    }
+  }
+  .blur {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.13);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.4px);
+-webkit-backdrop-filter: blur(7.4px);
+border: 1px solid rgba(255, 255, 255, 0.03);
+z-index: 999;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  }
+.blur h1 {
+  width: 400px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #e60523;
+  transform: translateY(-40px);
+  z-index: 1000;
+  color: #ec0000;
+  font-size: 18px;
+  background: transparent;
+  letter-spacing: 4px;
+  background-color: #ffffff46;
+}
+
+
+  /* timer */
+
+
+  .clock {
+    position: relative;
+    margin: a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(270deg, #051817, #0e3839);
+    height: 180px;
+    width: 420px;
+    color: #06f1f6;
+    text-shadow: 1px 1px 7px;
+    border-radius: 15px;
+    border: 2px solid silver;
+    box-shadow: 0 0 5px 25px;
+  }
+  
+  .clock section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  .clock section p {
+    font-size: 4rem;
+  }
+  .clock section small {
+    color: silver;
+    text-shadow: none;
+  }
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

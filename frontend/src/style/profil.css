@@ -1,0 +1,423 @@
+.Kabinet {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 30px;
+    width: 1440px;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.kabinetProfil {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    width: 270px;
+    height: 156px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.kabinetUserIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #3C3C3C;
+    transition: all 0.5s ease;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid transparent;
+    padding: 2px 5px;
+}
+
+.kabinetUserIcon img {
+    width: 20px;
+}
+
+.red {
+    color: #E81D1C;
+    cursor: pointer;
+    border: 1px solid #9593932f;
+}
+
+.kabinetInfo {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+.kabinetRegiser {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    padding-bottom: 200px;
+}
+
+.registerTel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+}
+
+.registerTitle {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 31px;
+    color: #3C3C3C;
+}
+
+.inputFic {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+}
+
+.inputFic span {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 19px;
+    color: #636363;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.input {
+    width: 270px;
+    height: 50px;
+    left: 510px;
+    top: 371px;
+    border: 1px solid #BCBCBC;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.telInput {
+    width: 560px;
+    height: 50px;
+    left: 510px;
+    top: 267px;
+    border: 1px solid #BCBCBC;
+    border-radius: 3px;
+}
+
+.saveButton {
+    width: 560px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    background: #E81D1C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MoyZakaz */
+
+.numList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    height: 56px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #3C3C3C;
+    padding: 20px;
+}
+
+.moyZakaz {
+    gap: 25px;
+}
+
+.listPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.pageZakaz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 847px;
+    height: 56px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(3, 0, 71, 0.09);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.zakazNum {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 150%;
+    color: #2B3445;
+}
+
+.zakazStatus {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 12px;
+    color: #0F3460;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 10px;
+    width: 78px;
+    height: 22px;
+    background: #F3F6F9;
+    border-radius: 15px;
+}
+
+.zakazData {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #2B3445;
+}
+
+.zakazSum {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #2B3445;
+}
+
+.dostavlene {
+    color: #33D067;
+    background: #E7F9ED;
+}
+
+.otmena {
+    color: #E81D1C;
+    background: #FCE9EC;
+}
+
+
+/* Xabar */
+
+.infoXabar {
+    width: 847px;
+    height: 181px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 50px;
+    padding-bottom: 30px;
+}
+
+.xabarData {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #B0B0B0;
+}
+
+.xabarTitle {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #3C3C3C;
+}
+
+.xabarText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #737373;
+}
+
+
+/* Account Page */
+
+.Accaunt {
+    width: 1440px;
+    margin: 50px auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 620px;
+    width: 459px;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    border-radius: 5px;
+    gap: 30px;
+
+}
+
+.accountTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 27px;
+    color: #000000;
+}
+
+.accountInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #C1C1C1;
+    padding-bottom: 40px;
+}
+
+.inputInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.inputInfo p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #000000;
+}
+
+.inputIcon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 303px;
+    height: 42px;
+    background: #FFFFFF;
+    border: 1px solid #C1C1C1;
+    padding: 10px;
+}
+
+.inputIcon input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding-left: 10px;
+    border-left: 1px solid #C1C1C1;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #000000;
+}
+
+.accountbutton {
+    width: 303px;
+    height: 42px;
+    background: #E81D1C;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    margin: 0 auto;
+    border: none;
+}
+
+.accountbutton:hover {
+    background: #b51616;
+}
+
+@media screen and (max-width: 1440px) {
+    .Kabinet {
+        width: 1140px;
+    }
+
+    .kabinetInfo {
+        gap: 20px;
+    }
+}
+
+
+@media screen and (max-width : 414px) and (min-width: 360px) {
+
+    /* Account */
+
+    .Accaunt {
+        display: flex !important;
+        box-shadow: none;
+        margin: 0px;
+    }
+
+    .Kabinet {
+        width: 100%;
+        padding: 0px 10px;
+    }
+
+    .kabinetInfo {
+        flex-direction: column;
+    }
+
+    .kabinetProfil {
+        width: 100%;
+    }
+
+    .registerTitle {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #3C3C3C;
+    }
+
+    .telInput {
+        width: 100%;
+    }
+
+    .userInfo {
+        width: 100%;
+    }
+
+    .userInfo input {
+        width: 100%;
+    }
+
+    .kabinetRegiser {
+        padding-bottom: 20px;
+    }
+}

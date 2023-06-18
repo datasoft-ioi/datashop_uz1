@@ -1,0 +1,469 @@
+.korzinka {
+    height: 93vh;
+    display: flex;
+    width: 1440px;
+    margin: auto;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+    border-bottom: 1px solid #D9D9D9;
+    overflow-y: auto;
+    padding: 0px 10px;
+}
+
+.products {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 940px;
+}
+
+.korzinkaProduct {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.korzinkaTitle {
+    width: 940px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #D9D9D9;
+    
+}
+
+.korzinkaTitle h1 {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 31px;
+    color: #3C3C3C;
+}
+
+.korzinkaTitle span {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #3C3C3C;
+}
+
+.korzinkaElment {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.korzinkaElmentTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.korzinkaElmentTitle span {
+    display: flex;
+    align-items: center;
+    gap: 280px;
+}
+
+.korzinkaElmentTitle h3 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #7D7D7D;
+}
+
+.korzinkaProducts {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.Kproduct {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.KproductInfo {
+    display: flex;
+    gap: 20px;
+}
+
+.KproductImg {
+    background-color: transparent;
+}
+
+.KproductImg img{
+    width: 116px;
+    height: 87px;
+}
+
+.productInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.productInfo1 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #3C3C3C;
+}
+
+.productInfo2 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #E81D1C;
+}
+
+.productInfo3 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #878787;
+}
+
+.KproductEnd {
+    display: flex;
+    gap: 180px;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-30px);
+}
+
+.KproductCount {
+    width: 150px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: end;
+}
+
+.KproductCount button{
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.KproductCount span {
+    width: 35px;
+    height: 24px;
+    border: 1px solid #C1C1C1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8C8C8C;
+}
+
+.KproductPrice {
+    width: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}
+.none {
+    display: none;
+}
+.KproductPrice span {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #474747
+}
+
+.KorzinkaCon {
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 100px 0px;
+}
+
+
+.korzinkaInfoBar {
+    width: 400px;
+    height: 440px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+}
+
+.korzinkaInfoBarInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.korzinkaInfoBarTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #3C3C3C;
+    padding: 15px 0px;
+}
+
+
+.korzinkaInfoBarTitle h1 {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 31px;
+    color: #3C3C3C;
+}
+
+.korzinkaInfoBarTitle span {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #3C3C3C;
+}
+
+.korzinkaInfoBarFon {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #3C3C3C;
+}
+
+.korzinkaInfoBarFon1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.korzinkaInfoBarFon1 h5 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #3C3C3C;
+}
+.korzinkaInfoBarPrice {
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    border-top: 1px solid #D9D9D9;
+    padding-top: 20px;
+}
+
+.korzinkaInfoBar  button {
+    width: 320px;
+    height: 50px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+    background: #E81D1C;
+    border-radius: 10px;
+}
+
+.productInfo3:hover  {
+    color: red;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s all;
+}
+.resPrise {
+    display: none;
+}
+.zakazBtn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.zakazBtn span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #888888;
+}
+
+@media screen and (max-width: 1440px ) {
+    .korzinka {
+        width: 1140px;
+        gap: 20px;
+    }
+    .korzinkaTitle {
+        width: auto;
+    }
+}
+
+/* mobile respansive ===================== START  */
+@media screen  and  (max-width : 414px) and (min-width: 360px) {
+    .korzinka {
+        width: 100%;
+        height: 100%;
+        padding: 0px 10px;
+        flex-direction: column;
+        gap: 0;
+    }
+    .Kproduct {
+        width: 100%;
+        justify-content: center;
+        gap: 0;
+    }
+    .KproductInfo {
+        width: 100%;
+        justify-content: start;
+    }
+    .korzinkaElmentTitle span h3{
+        display: none;
+    }
+    #none {
+        display: none;
+    }
+    .productInfo {
+        padding-top: 2px;
+        gap: 0;
+    }
+    .KproductEnd {
+        gap: 0;
+    }
+    .KproductCount {
+        display: none;
+    }
+    .productInfo2 {
+        display: none;
+    }
+    .KproductPrice {
+        display: none;
+    }
+    .resPrise {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: #474747;
+
+    }
+    .productInfo {
+        gap: 5px;
+    }
+    .KproductImg {
+
+    }
+    .KproductImg img {
+        max-width: 90px;
+        max-height: 70px;
+    }
+    .productInfo1 {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;      
+        color: #3C3C3C;
+    }
+    .productInfo3 {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+        color: #878787;
+    }
+    .korzinkaTitle h1 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        color: #3C3C3C;
+    }
+    .korzinkaTitle span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #3C3C3C;
+    }
+    .linkCategory li {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #767676;
+    }
+    .korzinkaElmentTitle h3 {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #7D7D7D;
+    }
+    .KorzinkaCon {
+        padding-top: 0px;
+        padding: 10px 0px;
+    }
+    .korzinkaInfoBarTitle {
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .korzinkaInfoBarTitle h1 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        color: #3C3C3C;
+    }
+    .korzinkaInfoBarTitle span {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #3C3C3C;
+    }
+    .korzinkaInfoBarFon1Prise {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #888888;
+    }
+    .korzinkaPriceInfo {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #3C3C3C;
+    }
+    .korzinkaInfoBar {
+        width: 400px;
+        padding: 0px 20px;
+    }
+    .zakazBtn {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .zakazBtn span {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #888888;
+    }
+    .zakazBtn button {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: #FFFFFF;
+    }
+    
+ }
+/* mobile respansive ===================== END */
+
+.KorzinkaPustoy {
+    height: 80vh;
+    width: 1440px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,828 @@
+.shop {
+  width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 30px;
+}
+
+.linkCategory {
+  display: flex;
+}
+
+.linkCategory li {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #767676;
+}
+
+.shopMain {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.shopMainHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.shopMainTitle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.shopMainTitle h1 {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 31px;
+  color: #3C3C3C;
+}
+
+.shopMainTitle span {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #5A5A5A;
+}
+
+.shopMainHeaderBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.shopMainHeaderBtn button {
+  width: 139px;
+  height: 30px;
+  background: #F0F0F0;
+  border-radius: 5px;
+  border: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.shopMainHeaderBtn button:hover {
+  background-color: #E81D1C;
+  color: white;
+}
+
+.shopMainS {
+  display: flex;
+  gap: 100px;
+}
+
+.shopMenuAside {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.rengePrice {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rengePrice h1 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3C3C3C;
+}
+
+.priceMin {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.priceMinInputs {
+  display: flex;
+}
+
+.rengePrice label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #686868;
+}
+
+.rengePrice input {
+  width: 100px;
+  height: 30px;
+}
+
+.minPrice,
+.maxPrice {
+  display: flex;
+  flex-direction: column;
+}
+
+.prices {
+  display: flex;
+  gap: 5px;
+}
+
+.pcHR {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.pcHR div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.pcHR ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pcHR ul li {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3C3C3C;
+  cursor: pointer;
+}
+
+.pcHR select {
+  border-color: #E81D1C;
+  border-radius: 3px;
+  color: #ffffff;
+  background-color: #E81D1C;
+  outline: none;
+}
+
+/* range */
+input[type=range] {
+  height: 20px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.shopMenuCon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 36px;
+  grid-row-gap: 36px;
+}
+
+.LaptopContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 30px;
+
+}
+
+.Laptop {
+  width: 1440px;
+  margin: 50px auto;
+}
+
+.kategoriLink {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #767676;
+}
+
+.LaptopName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.LaptopTitle {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 31px;
+  color: #3C3C3C;
+}
+
+.LaptopTovar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 200px;
+}
+
+.LaptopImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.LaptopImgg {
+  width: 439px;
+  height: 409px;
+  background: #FFFFFF;
+  border: 0.5px solid #D1D1D1;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ImagesMini {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 15px 20px;
+}
+
+.miniBorder img {
+  width: 66px;
+}
+
+.laptopImgg {
+  width: 350px;
+}
+
+.miniBorder {
+  transition: transform 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 71px;
+  border-radius: 5px;
+  padding: 20px 40px;
+  cursor: pointer;
+}
+
+.active {
+  transition: transform 0.5s ease;
+  border: 1px solid #E81D1C;
+  transform: translateY(-20px);
+}
+
+.LaptopInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.InfoTitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.LaptopInfo div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+
+}
+
+.drection {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  color: #565656;
+  cursor: pointer;
+}
+
+.LaptopInfo div span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #828282;
+}
+
+.LaptopInfo div p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.LaptopMoneyDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.LaptopKupit {
+  top: -180px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 290px;
+  height: 186px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  gap: 10px;
+  padding: 25px;
+}
+
+.LaptopMoneyInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 289px;
+  height: 184px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  gap: 15px;
+}
+
+.sum {
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 27px;
+  color: #474747;
+
+}
+
+.LaptopKupit button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 248px;
+  height: 39px;
+  background: #E81D1C;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  border: none;
+  gap: 7px;
+  cursor: pointer;
+
+}
+
+.LaptopMoneyInfo div p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+  width: 200px;
+
+}
+
+.LaptopMoneyInfo div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.LaptopInfo span {
+  color: #000000;
+}
+
+.gobtn {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.laptopImg {
+  transition: all 0.5s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.laptopImg:hover .goShopBtnClose {
+  transition: all 0.5s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.laptopImg:hover img {
+  transition: all 0.5s ease;
+  filter: blur(2px);
+}
+
+
+/* input renge */
+input[type=range] {
+  height: 22px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #FF0000;
+  background: #FF0000;
+  border-radius: 50px;
+  border: 1px solid #FF1414;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 3px #FF1717;
+  border: 1px solid #FF0000;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #FF0000;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #FF0000;
+  background: #FF0000;
+  border-radius: 50px;
+  border: 1px solid #FF1414;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 3px #FF1717;
+  border: 1px solid #FF0000;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #FF0000;
+  border: 1px solid #FF1414;
+  border-radius: 100px;
+  box-shadow: 0px 0px 0px #FF0000;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #FF0000;
+  border: 1px solid #FF1414;
+  border-radius: 100px;
+  box-shadow: 0px 0px 0px #FF0000;
+}
+
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 3px #FF1717;
+  border: 1px solid #FF0000;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #FF0000;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #FF0000;
+}
+
+
+.saveK {
+  position: absolute;
+  right: 0px;
+  top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 362px;
+  height: 69px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  animation: animateSaveBar 0.3s ease-in-out;
+  background-color: #FFFFFF;
+}
+
+.saveK::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 69px;
+  background-color: #48FF2A;
+  left: 0;
+}
+
+.saveKClose {
+  position: absolute;
+  right: 0px;
+  top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 362px;
+  height: 69px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+@keyframes animateSaveBar {
+  0% {
+    transform: translateX(400px);
+  }
+
+  100% {
+    transform: translateX(-0px);
+  }
+}
+
+.shopHeaderRes {
+  display: none;
+}
+.filterTitle {
+  display: none;
+}
+.asideClose {
+  display: none;
+}
+@media screen and (max-width: 1440px ) {
+  .Laptop {
+    width: 1140px;
+  }
+  .LaptopContainer {
+    padding: 0px;
+  }
+  .LaptopTovar {
+    gap: 0px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .shop {
+    width: 1140px;
+  }
+  .shopMenuCon {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width : 414px) and (min-width: 360px) {
+  .Laptop {
+    width: 100%;
+    padding: 0px 10px;
+  }
+
+  .LaptopContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 10px;
+  }
+
+  .LaptopTovar {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LaptopMoneyDiv {
+    grid-row: 2;
+  }
+
+  .LaptopImgg {
+    width: 355px;
+    height: 317.79px;
+    background: #FFFFFF;
+    border: 0.5px solid #D1D1D1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .laptopImgg {
+    height: 213px;
+    width: 253px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .LaptopInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+  }
+
+  .LaptopKupit {
+    top: -180px;
+    z-index: 3;
+
+    width: 355px;
+    height: 186px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    gap: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LaptopMoneyInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 331px;
+    height: 184px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    gap: 15px;
+  }
+
+  .LaptopTitle {
+    font-size: 18px;
+  }
+
+  .kategoriLink {
+    font-size: 14px;
+  }
+
+  .miniBorder img {
+    width: 56px;
+    height: 59px;
+  }
+  .shop {
+    width: 100%;
+    padding: 0px 10px;
+    padding-bottom: 60px;
+  }
+  .shopMenuCon {
+    width: 100%;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+  }
+  .shopMainHeader {
+    display: none;
+  }
+  .shopHeaderRes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .resFilterBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+  }
+  .resFilterBtn button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #000000;
+  }
+  .shopMainTitle h1 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #3C3C3C;
+  }
+  .shopMainTitle span{
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 12px;  
+    color: #5A5A5A;
+  }
+  .shopMenuAside {
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 5px;
+    height: 100vh;
+    width: 80%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    background-color: #FFFFFF;
+    z-index: 101;
+    transition:  0.2s ease;
+  }
+  .filterTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .filterTitle span {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #3C3C3C;
+  }
+  @keyframes closeAnime {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  .asideClose {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 20%;
+    background: rgba(81, 81, 81, 0.3);
+    animation: closeAnime 0.5s ease;
+  }
+  .LaptopContainer {
+    gap: 20px;
+  }
+  .Laptop {
+    margin: 0;
+    margin-top: 25px;
+  }
+  .saveK {
+    position: fixed;
+    width: 100%;
+    top: auto;
+    right: auto;
+    left: 0;
+    bottom: 71px;
+    z-index: 10;
+  }
+}

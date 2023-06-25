@@ -7,7 +7,7 @@ import { Link , useNavigate} from 'react-router-dom';
 
 export default function Login() {
 
-    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showAlert, setShowAlert] = useState(false);
 
@@ -15,7 +15,7 @@ export default function Login() {
     const passwordRef = useRef()
 
     const handleNameChange = (e) => {
-        setName(e.target.value);
+        setEmail(e.target.value);
         setShowAlert(false);
     };
 
@@ -29,12 +29,12 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (name === '' || password === '') {
+        if (email === '' || password === '') {
             setShowAlert(true);
             return;
         }
         // Ma'lumotlarni yuborish yoki saqlash logikasi
-        console.log('Name:', name);
+        console.log('Name:', email);
         console.log('Password:', password);
         // ... qo'shimcha muvaffaqiyatli amallar
     };
@@ -45,7 +45,7 @@ export default function Login() {
     const requestLogin = async () => {
         const url = "https://api.datashop.uz/user/login/"
         const body = {
-            email: name,
+            email: email,
             password: password,
         }
         try {
@@ -66,7 +66,7 @@ export default function Login() {
                 <div className="inputInfo">
                     <p>Введите имя</p>
                     <div className="inputIcon">
-                        <img src={userIcon} alt="" /> <input type="text" id="name" value={name} onChange={handleNameChange} placeholder='Имя' ref={nameRef} />
+                        <img src={userIcon} alt="" /> <input type="text" id="email" value={email} onChange={handleNameChange} placeholder='email' ref={nameRef} />
                     </div>
                 </div>
                 <div className="inputInfo">

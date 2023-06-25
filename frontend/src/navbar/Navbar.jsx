@@ -10,31 +10,42 @@ import profilIcon2 from '../media/boxtick3.png'
 import profilIcon3 from '../media/bell.png'
 import profilIcon4 from '../media/x-circle.png'
 import { useState } from 'react'
-import { IoClose, IoPhonePortraitOutline} from 'react-icons/io5'
+import { IoClose } from 'react-icons/io5'
 import { BsLaptop } from 'react-icons/bs'
-import { BsTv } from 'react-icons/bs'
-import { AiOutlineCustomerService } from 'react-icons/ai'
 import { MdOutlineNavigateNext } from 'react-icons/md'
 import Pr from './Pr'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import izbIcon from '../media/izb.svg'
-import {CgMenu} from 'react-icons/cg'
-import {FiPhone} from 'react-icons/fi'
+import { FiPhone } from 'react-icons/fi'
+import PropTypes from 'prop-types';
+import axios from 'axios'
 
 
-function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange, addKorzinka , korzinkaOn }) {
+
+function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange, addKorzinka }) {
+    Navbar.propTypes = {
+        AddLaptop: PropTypes.func.isRequired,
+        AddMonitor: PropTypes.func.isRequired,
+        AddSmartfon: PropTypes.func.isRequired,
+        AddAksesuar: PropTypes.func.isRequired,
+        setFotChange: PropTypes.func.isRequired,
+        addKorzinka: PropTypes.array.isRequired,
+        korzinkaOn: PropTypes.bool.isRequired
+    };
+
+
     const [trm, setTrm] = useState(1000)
     const [icon, setIcon] = useState(<BiCategory size='27px' color='#ffffff' />)
     const [noneBorder, setNoneBoreder] = useState('')
     const [st, setSt] = useState('laptop')
     const [pr, setPr] = useState('navProfil')
 
-    function profil(){
-        if(pr == 'navProfil'){
+    function profil() {
+        if (pr == 'navProfil') {
             setPr('navProfil pr')
         }
-        if(pr == 'navProfil pr'){
+        if (pr == 'navProfil pr') {
             setPr('navProfil')
         }
     }
@@ -60,12 +71,12 @@ function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange,
             setTrm(0)
         }
         else {
-            setIcon(<BiCategory size='27px' color='#ffffff' />) 
+            setIcon(<BiCategory size='27px' color='#ffffff' />)
             setTrm(1500)
         }
     }
     // ADD KATEGOY RESPANSIVE =================== END //
-    
+
     // navbar fixed function ==============================
 
     const [scrolled, setScrolled] = useState('');
@@ -85,7 +96,7 @@ function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange,
     })
     // navbar fixed function ==============================
     // navbar respansive uchun fixed START ======================
-    const [scrolledRes, setScrolledRes] = useState('navResBottom');
+    const [scrolledRes] = useState('navResBottom');
 
     const scrollFixedRes = () => {
         const scrol = window.scrollY;
@@ -102,8 +113,17 @@ function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange,
     })
     // navbar respansive uchun fixed END ======================
     // const ApiUser = JSON.parse(localStorage.getItem('user'))
+    const [categores , setCategores]  = useState([])
 
-    const name = JSON.parse(localStorage.getItem('token'))
+    const catgoRrequest = async () => {
+        const url = "https://api.datashop.uz/cateogry/"
+        const getCategory = await axios.get(url)
+        setCategores(getCategory.data)
+    }
+    useEffect(() => {
+        catgoRrequest()
+    } , [])
+
 
     return (
         <nav className={scrolled}>
@@ -131,23 +151,23 @@ function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange,
                         <Link to='/' onClick={() => setFotChange('')}><img className='dataLogo' src={DataLogo} /></Link>
                     </div>
                     <button onClick={addCategory} className="CategoryBtn">{icon} Категория</button>
-                        <div className="navSearch">
-                            <input type="text" placeholder='Введите запрос...' />
-                            <button className='navSearchBtn'><HiOutlineSearch color='#ffffff' size='24px' /></button>
-                        </div>
+                    <div className="navSearch">
+                        <input type="text" placeholder='Введите запрос...' />
+                        <button className='navSearchBtn'><HiOutlineSearch color='#ffffff' size='24px' /></button>
+                    </div>
                     <div className="navBtns">
                         <Link to='/korzinka' onClick={() => setFotChange('none')}><button className='navKorzinkabutton'><img src={shopIcon} alt="" /> <span>Корзина</span></button></Link>
                         <Link to='/Избранное'><button className='navIzbbutton'><img src={izbIcon} alt="" /> <span>Избранное</span></button></Link>
-                        <Link to='/account'> <button  onClick={profil}> <span className='navProfilbutton'><img src={profilIcon} alt="" />   profil  </span></button></Link>
+                        <Link to='/account'> <button onClick={profil}> <span className='navProfilbutton'><img src={profilIcon} alt="" />   profil  </span></button></Link>
                         {/* <Link to='/account'> <button  onClick={profil}> <span className='navProfilbutton'><img src={profilIcon} alt="" /> {ApiUser.username ? ApiUser.username : "  Профиль" } </span></button></Link> */}
                         <span className='kLenght'>{addKorzinka.length}</span>
                         <div className={pr}>
                             <p className="profilTitle">Name</p>
                             <div className="profilPage">
-                            <Link to='/kabinet'><span><img src={profilIcon1} alt="" /> Личный кабинет</span></Link>
-                            <Link to='/profilZakaz'><span><img src={profilIcon2} alt="" /> Мои заказы</span></Link>
-                            <Link to='/xabar'><span><img src={profilIcon3} alt="" /> Уведомления </span></Link>
-                            <Link to='/'><span><img src={profilIcon4} alt="" /> Выйти </span></Link>
+                                <Link to='/kabinet'><span><img src={profilIcon1} alt="" /> Личный кабинет</span></Link>
+                                <Link to='/profilZakaz'><span><img src={profilIcon2} alt="" /> Мои заказы</span></Link>
+                                <Link to='/xabar'><span><img src={profilIcon3} alt="" /> Уведомления </span></Link>
+                                <Link to='/'><span><img src={profilIcon4} alt="" /> Выйти </span></Link>
                             </div>
                         </div>
                     </div>
@@ -158,28 +178,29 @@ function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange,
                     <div className="LogoBtnCon">
                         <Link to='/' onClick={() => setFotChange('')}><img className='dataLogo' src={DataLogo} /></Link>
                     </div>
-                    <IoClose onClick={addCategoryRes} color="#FFFFFF" size={'30px'}/>
+                    <IoClose onClick={addCategoryRes} color="#FFFFFF" size={'30px'} />
                 </div>
                 <div className="categoryCon">
                     <ul className="ctMenu">
-                        <li onClick={() => setSt('laptop')}>  <button>  <span><BsLaptop className='ctIcon' size='26px' /> <span>Ноутбуки</span></span> <MdOutlineNavigateNext className='ctIcon' size='22px' /></button></li>
-                        <li onClick={() => setSt('phone')}>   <button>  <span><IoPhonePortraitOutline className='ctIcon' size='26px' /> <span>Смартфоны</span></span> <MdOutlineNavigateNext className='ctIcon' size='22px' /></button></li>
-                        <li onClick={() => setSt('monitor')}> <button>  <span><BsTv className='ctIcon' size='26px' /> <span>Мониторы</span></span> <MdOutlineNavigateNext className='ctIcon' size='22px' /></button></li>
-                        <li onClick={() => setSt('acsesuar')}><button>  <span><AiOutlineCustomerService className='ctIcon' size='26px' /> <span>Аксессуары</span></span> <MdOutlineNavigateNext className='ctIcon' size='22px' /></button></li>
+                        {
+                            categores.map(item => (
+                                <li key={item.id} onClick={() => setSt('laptop')}>  <button>  <span><BsLaptop className='ctIcon' size='26px' /> <span>{item.name}</span></span> <MdOutlineNavigateNext className='ctIcon' size='22px' /></button></li>
+                            ))
+                        }
                     </ul>
                     <div className="ctInfo">
                         <Pr AddSmartfon={AddSmartfon} AddAksesuar={AddAksesuar} AddMonitor={AddMonitor} st={st} setSt={setSt} addCategory={addCategory} AddLaptop={AddLaptop} />
                     </div>
                 </div>
                 <div className="categoryClose" onClick={addCategory}>
-                    
+
                 </div>
             </div>
             <div className="navRes">
                 <div className="navResTop">
                     <Link to='/' onClick={() => setFotChange('')}><img className='dataLogo' src={DataLogo} /></Link>
                     <div className="navResTopBtn">
-                        <FiPhone size={'18px'}/>
+                        <FiPhone size={'18px'} />
                         <div className="til">
                             <img src={uzbFlag} alt="" />
                             <select name="Til" id="" className='navSec'>

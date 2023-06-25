@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default function Accaunt() {
 
     const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [showAlert, setShowAlert] = useState(false);
     const [link , setLink] = useState("/account")
@@ -24,7 +24,7 @@ export default function Accaunt() {
 
 
     const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
+        setEmail(e.target.value);
         setShowAlert(false);
     };
 
@@ -35,13 +35,13 @@ export default function Accaunt() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (name === ''  || password === '' || password1 === '') {
+        if (name === ''  || email === '' || password1 === '') {
             setShowAlert(true);
             return;
         }
         // Ma'lumotlarni yuborish yoki saqlash logikasi
         console.log('Name:', name);
-        console.log('Password:', password);
+        console.log('Password:', email);
         console.log('Password1:', password1);
         // ... qo'shimcha muvaffaqiyatli amallar
     };
@@ -51,9 +51,9 @@ export default function Accaunt() {
     const requestRegister = async () => {
         const url = "https://api.datashop.uz/user/register/"
         const body = {
-            email: name,
-            password: password,
-            password2: password1
+            username: name,
+            email: email,
+            password: password1
         }
 
         try{
@@ -75,19 +75,19 @@ export default function Accaunt() {
             <h1 className="accountTitle">Регистрация</h1>
             <form className="accountInputs" onSubmit={handleSubmit}>
                 <div className="inputInfo">
-                    <p>Введите имя</p>
+                    <p>Ism</p>
                     <div className="inputIcon">
                         <img src={userIcon} alt="" /> <input type="text" id="name" value={name} onChange={handleNameChange} placeholder='Имя' ref={nameRef} />
                     </div>
                 </div>
                 <div className="inputInfo">
-                    <p>Пароль</p>
+                    <p>Email</p>
                     <div className="inputIcon">
-                        <img src={lockIcon} alt="" />   <input type="password" id="password" value={password} onChange={handlePasswordChange} placeholder='password' ref={passwordRef} />
+                        <img src={lockIcon} alt="" />   <input type="email" id="password" value={email} onChange={handlePasswordChange} placeholder='email' ref={passwordRef} />
                     </div>
                 </div>
                 <div className="inputInfo">
-                    <p>Подтвердите пароль</p>
+                    <p>Password</p>
                     <div className="inputIcon">
                         <img src={lockIcon} />  <input type="password" id="password" value={password1} onChange={handlePassword1Change} placeholder='password' ref={password1Ref}/>
                     </div>

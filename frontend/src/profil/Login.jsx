@@ -1,5 +1,4 @@
 import userIcon from '../media/User Rounded.svg'
-import emailIcon from '../media/mail.svg'
 import lockIcon from '../media/lock.svg'
 import { useRef, useState } from 'react';
 import axios from 'axios';
@@ -44,7 +43,7 @@ export default function Login() {
     const navigate = useNavigate()
 
     const requestLogin = async () => {
-        const url = "https://api.datashop.uz/login/"
+        const url = "https://api.datashop.uz/user/login/"
         const body = {
             email: name,
             password: password,

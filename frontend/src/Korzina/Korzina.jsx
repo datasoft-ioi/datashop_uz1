@@ -1,4 +1,3 @@
-import victus from '../media/laptop.png'
 import { Link } from 'react-router-dom'
 
 function Korzinka({addKorzinka , Delete , setAddKorzinka , CountPlus , count , CountMinus}) {

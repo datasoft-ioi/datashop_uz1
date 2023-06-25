@@ -1,5 +1,4 @@
 import userIcon from '../media/User Rounded.svg'
-import emailIcon from '../media/mail.svg'
 import lockIcon from '../media/lock.svg'
 import { useRef, useState } from 'react';
 import axios from 'axios';
@@ -50,7 +49,7 @@ export default function Accaunt() {
 
 
     const requestRegister = async () => {
-        const url = "https://api.datashop.uz/register/"
+        const url = "https://api.datashop.uz/user/register/"
         const body = {
             email: name,
             password: password,

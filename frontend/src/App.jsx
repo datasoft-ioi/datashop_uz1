@@ -1,17 +1,13 @@
 import Footer from './footer/Footer';
 import Navbar from './navbar/Navbar'
-import snowLogo from './christmas-snowflake-winter-free-png.png'
-import Snowfall from 'react-snowfall'
-import { BrowserRouter, Link, Route, Routes, useNavigate, redirect, Navigate } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes} from 'react-router-dom'
 import WebMenu from './WebMenu';
 import Shop from './shop/Shop';
 import { useState } from 'react';
 import tufGamingPng from './texnoimg/tufgaming.png'
 import victus from './texnoimg/victus.png'
 import aser from './texnoimg/acer.png'
-import axios from 'axios'
 import Laptop from './shop/Laptop';
-import { useEffect } from 'react';
 import m1 from './texnoimg/m1.png'
 import m2 from './texnoimg/m2.png'
 import m3 from './texnoimg/m3.png'
@@ -28,35 +24,17 @@ import { FiHome, FiShoppingCart } from 'react-icons/fi'
 import { AiOutlineStar } from 'react-icons/ai'
 import { RxPerson } from 'react-icons/rx'
 import KorzinkaPustoy from './Korzina/KorzinkaPustoy';
-import Clock from './Clock';
 import Login from './profil/Login';
 // booto bar uchun icoon ================= END
 
 
 function App() {
 
-
-  // snow animate 
-  const snowFlake = document.createElement('img')
-  snowFlake.src = snowLogo
-  const images = [snowFlake]
-  // snow animate
-
-
-
-  //   async function GetTack() {
-  //     const response = await axios.get('https://api.datashop.uz/api/products?name=sam')
-  //     setLaptops(response.data);
-  //     console.log(response.data);
-  //  }
-  //  useEffect( () => {
-  //   GetTack()
-  //  }, [])
   let baseURL = 'https://api.datashop.uz'
 
 
 
-  const [laptops, setLaptops] = useState([
+  const [laptops] = useState([
     {
       id: 1,
       img: tufGamingPng,
@@ -120,7 +98,7 @@ function App() {
   ])
 
 
-  const [monitors, setMonitors] = useState([
+  const [monitors] = useState([
     {
       id:1,
       img: m1,
@@ -183,7 +161,7 @@ function App() {
     }
   ])
 
-  const [smartfon, setSmartfon] = useState([
+  const [smartfon] = useState([
     {
       id:1,
       img: 'https://free-png.ru/wp-content/uploads/2021/02/TENC_6.5_iPhone_11_PC-658CC-3_1024x1024-7ccac3cc.png',
@@ -192,7 +170,7 @@ function App() {
     }
   ])
 
-  const [aksesuar, setAksesuar] = useState([
+  const [aksesuar] = useState([
     {
       id:1,
       img: 'https://img.cgaxis.com/2021/11/airpods_max_silver_a.webp',
@@ -254,65 +232,6 @@ function App() {
       setCount(0)
     }
   }
-  // Korzinka Count ===== END
-
-  // Korzinka On-Off Function ==== START
-  // const navigate = useNavigate()
-  // function korzinkaOn() {
-  //   if (addKorzinka.length == 0) {
-  //    navigate("/korzinkaNoneProduct")
-  //   }
-  //   if (addKorzinka.length > 0) {
-  //     navigate("/korzinka")
-  //   }
-  // }
-  // Korzinka On-Off Function ==== END
-  // TIMER ============================================================================ START
-
-  const [timerDays, setTimerDays] = useState();
-  const [timerHours, setTimerHours] = useState();
-  const [timerMinutes, setTimerMinutes] = useState();
-  const [timerSeconds, setTimerSeconds] = useState();
-
-  let interval;
-
-  const startTimer = () => {
-    const countDownDate = new Date("Feb ,2 , 2023 ").getTime();
-
-    interval = setInterval(() => {
-      const now = new Date().getTime();
-
-      const distance = countDownDate - now;
-
-      const days = Math.floor(distance / (24 * 60 * 60 * 1000));
-      const hours = Math.floor(
-        (distance % (24 * 60 * 60 * 1000)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((distance % (60 * 60 * 1000)) / (1000 * 60));
-      const seconds = Math.floor((distance % (60 * 1000)) / 1000);
-
-      if (distance < 0) {
-        // Stop Timer
-
-        clearInterval(interval.current);
-      } else {
-        // Update Timer
-        setTimerDays(days);
-        setTimerHours(hours);
-        setTimerMinutes(minutes);
-        setTimerSeconds(seconds);
-      }
-    });
-  };
-
-  useEffect(() => {
-    startTimer();
-  });
-
-
-  // TIMER ============================================================================ END
-
-   
 
   return (
     <>

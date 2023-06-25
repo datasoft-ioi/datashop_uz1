@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
-function Korzinka({addKorzinka , Delete , setAddKorzinka , CountPlus , count , CountMinus}) {
-
+function Korzinka({addKorzinka , Delete  , CountPlus , count , CountMinus}) {
+    Korzinka.propTypes = {
+        addKorzinka: PropTypes.array.isRequired,
+        Delete: PropTypes.func.isRequired,
+        setAddKorzinka: PropTypes.func.isRequired,
+        CountPlus: PropTypes.func.isRequired,
+        count: PropTypes.number.isRequired,
+        CountMinus: PropTypes.func.isRequired
+      };
 
     return (
         <div className="korzinka">
@@ -87,7 +95,7 @@ function Korzinka({addKorzinka , Delete , setAddKorzinka , CountPlus , count , C
                     </div>
                     <div className="zakazBtn">
                         <Link to='/zakaz'> <button>Оформить заказ</button> </Link>
-                        <span>Нажимая 'Оформить заказ', я соглашаюсь с публичным договором оферты</span>
+                        <span>Нажимая Оформить заказ, я соглашаюсь с публичным договором оферты</span>
                     </div>
                 </div>
             </div>

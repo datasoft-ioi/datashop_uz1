@@ -19,11 +19,21 @@ import appeicon from '../media/apppleicon.svg'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination , Navigation , Autoplay } from "swiper";
+import {  Navigation , Autoplay } from "swiper";
 import {AiFillHeart , AiOutlineHeart } from 'react-icons/ai'
+import PropTypes from 'prop-types';
 
 function Main({ laptops, monitors, add }) {
-    const [openShopBtn, setopenShopBtn] = useState('goShopBtnClose')
+
+    Main.propTypes = {
+        laptops: PropTypes.func.isRequired,
+        addslaptops: PropTypes.func.isRequired,
+        monitors: PropTypes.func.isRequired,
+        add: PropTypes.func.isRequired,
+        openShopBtn: PropTypes.func.isRequired
+    }
+
+    const [ setopenShopBtn] = useState('goShopBtnClose')
     
     const [hear , setHear] = useState(<AiOutlineHeart className='hear'/>)
     const [hearOn , setHearOn] = useState(true)    
@@ -53,9 +63,9 @@ function Main({ laptops, monitors, add }) {
                                     <div className="content">
                                         <div className="box">
                                             <div className="inner">
-                                                <div className="laptopImg" onMouseOver={() => setopenShopBtn("goShopBtn")} onMouseOut={() => setopenShopBtn("goShopBtnClose")}>
+                                                <div className="laptopImg">
                                                     <button className='hearBtn' onClick={addIzb}>{hear}</button>
-                                                    <Link to='/laptop' onClick={() => add({ id: laptop.id ,img :laptop.img })}> <button className="goShopBtnClose"><FiShoppingCart />В корзину</button></Link>
+                                                    <Link to={`/product/${laptop.id}`} onClick={() => add({ id: laptop.id ,img :laptop.img })}> <button className="goShopBtnClose"><FiShoppingCart />В корзину</button></Link>
                                                     <img src={laptop.img} alt="" />
                                                 </div>
                                                 <div className="laptopInfo">
@@ -240,7 +250,7 @@ function Main({ laptops, monitors, add }) {
                 </div>
                 <div className="laptops">
                     {
-                        laptops.map((laptop , index) => (
+                        laptops.map((laptop ) => (
                             <div className="servicess" key={laptop.id}>
                                 <div className="laptop">
                                     <div className="content">

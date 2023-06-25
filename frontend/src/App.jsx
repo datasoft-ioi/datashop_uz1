@@ -262,7 +262,7 @@ function App() {
         <Routes>
           <Route path='/' element={<WebMenu baseURL={baseURL} laptops={laptops} monitors={monitors} add={add} />} />
           <Route path='/shop' element={<Shop shops={shops} />} />
-          <Route path='/laptop' element={<Laptop adds={adds} setAddKorzinka={setAddKorzinka} FilterAdd={FilterAdd} />} />
+          <Route path='/product/:productId' element={<Laptop adds={adds} setAddKorzinka={setAddKorzinka} FilterAdd={FilterAdd} products={laptops} />} />
           <Route path='/korzinka' element={<Korzinka count={count} CountPlus={CountPlus} CountMinus={CountMinus} addKorzinka={addKorzinka} Delete={Delete} setAddKorzinka={setAddKorzinka} />} />
           <Route path='/zakaz' element={<Zakaz />} />
           <Route path='/kabinet' element={<Kabinet />} />

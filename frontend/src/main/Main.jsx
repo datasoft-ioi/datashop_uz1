@@ -19,8 +19,8 @@ import appeicon from '../media/apppleicon.svg'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import {  Navigation , Autoplay } from "swiper";
-import {AiFillHeart , AiOutlineHeart } from 'react-icons/ai'
+import { Navigation, Autoplay } from "swiper";
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import PropTypes from 'prop-types';
 
 function Main({ laptops, monitors, add }) {
@@ -33,26 +33,26 @@ function Main({ laptops, monitors, add }) {
         openShopBtn: PropTypes.func.isRequired
     }
 
-    const [ setopenShopBtn] = useState('goShopBtnClose')
-    
-    const [hear , setHear] = useState(<AiOutlineHeart className='hear'/>)
-    const [hearOn , setHearOn] = useState(true)    
+    const [setopenShopBtn] = useState('goShopBtnClose')
+
+    const [hear, setHear] = useState(<AiOutlineHeart className='hear' />)
+    const [hearOn, setHearOn] = useState(true)
     function addIzb() {
         if (hearOn == false) {
-            setHear(<AiOutlineHeart className='hear'/>)
+            setHear(<AiOutlineHeart className='hear' />)
             setHearOn(true)
-        }if (hearOn == true) {
-            setHear(<AiFillHeart className='hear'/>)
+        } if (hearOn == true) {
+            setHear(<AiFillHeart className='hear' />)
             setHearOn(false)
         }
     }
 
-    
+
     return (
         <main>
             <div className="mainlaptops">
                 <div className="laptopsHeaader">
-                    <span><BsLaptop className='lapIcon'  color='#3C3C3C' /><h3>Ноутбуки</h3></span>
+                    <span><BsLaptop className='lapIcon' color='#3C3C3C' /><h3>Ноутбуки</h3></span>
                     <button><h3>Смотреть еще</h3> <GrFormNextLink className='lapIcon' color='#3C3C3C' /></button>
                 </div>
                 <div className="laptops">
@@ -65,11 +65,15 @@ function Main({ laptops, monitors, add }) {
                                             <div className="inner">
                                                 <div className="laptopImg">
                                                     <button className='hearBtn' onClick={addIzb}>{hear}</button>
-                                                    <Link to={`/product/${laptop.id}`} onClick={() => add({ id: laptop.id ,img :laptop.img })}> <button className="goShopBtnClose"><FiShoppingCart />В корзину</button></Link>
-                                                    <img src={laptop.img} alt="" />
+                                                    <Link to={`/product/${laptop.id}`} onClick={() => add({ id: laptop.id, img: laptop.img })}>
+                                                        <button className="goShopBtnClose"><FiShoppingCart />В корзину</button>
+                                                    </Link>
+                                                    {laptop.images && laptop.images.length > 0 && (
+                                                        <img src={laptop.images[0].image} alt="" />
+                                                    )}
                                                 </div>
                                                 <div className="laptopInfo">
-                                                    <Link to='/laptop'>  <span className='lapName'>{laptop.name}</span></Link>
+                                                    <Link to='/laptop'><span className='lapName'>{laptop.name}</span></Link>
                                                     <div className="eva">
                                                         <AiFillStar className='evaCompanent' color='#E81D1C' />
                                                         <AiFillStar className='evaCompanent' color='#E81D1C' />
@@ -86,6 +90,7 @@ function Main({ laptops, monitors, add }) {
                             </div>
                         ))
                     }
+
                 </div>
             </div>
             <div className="mainlaptops">
@@ -131,98 +136,98 @@ function Main({ laptops, monitors, add }) {
             </span>
             <div className="brendContainer">
                 <Swiper
-                style={{
-                    'background':'#E81D1C' ,
-                    'display':'flex',
-                    'flexDirection':'column',
-                    'justifyContent':'center',
-                    'alignItems':'center',
-                    'justifySelf':'center',
-                    'alignSelf':'center'
-                }}
-                slidesPerView={1}
-                spaceBetween={10}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false
-                }}
-                pagination={{
-                  clickable: true,
-                }}
-                breakpoints={{
-                  "@0.00": {
-                    slidesPerView: 4,
-                    spaceBetween: 10,
-                  },
-                  "@0.75": {
-                    slidesPerView: 7,
-                    spaceBetween: 20,
-                  },
-                  "@1.00": {
-                    slidesPerView: 7,
-                    spaceBetween: 20,
-                  },
-                  "@1.50": {
-                    slidesPerView: 7,
-                    spaceBetween: 20,
-                  },
-                }}
-                modules={[Autoplay, Navigation]}
-                className="mySwiper3"
-                > 
-                <div className="brend">
-                    <div className="brandLogos">
-                        <div className="joys">
-                            <SwiperSlide className='brendCon'>
-                                <div className="brandLogo">
-                                    <img src={asusLogo} alt="" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide className='brendCon'>
-                                <div className="brandLogo">
-                                    <img src={asusLogo} alt="" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide className='brendCon'>
-                                <div className="brandLogo">
-                                    <img src={asusLogo} alt="" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide className='brendCon'>
-                                <div className="brandLogo">
-                                    <img src={asusLogo} alt="" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide className='brendCon'>
-                                <div className="brandLogo">
-                                    <img src={asusLogo} alt="" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide className='brendCon'>
-                                <div className="brandLogo">
-                                    <img src={asusLogo} alt="" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide className='brendCon'>
-                                <div className="brandLogo">
-                                    <img src={asusLogo} alt="" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide className='brendCon'>
-                                <div className="brandLogo">
-                                    <img src={asusLogo} alt="" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide className='brendCon'>
-                                <div className="brandLogo">
-                                    <img src={asusLogo} alt="" />
-                                </div>
-                            </SwiperSlide>
+                    style={{
+                        'background': '#E81D1C',
+                        'display': 'flex',
+                        'flexDirection': 'column',
+                        'justifyContent': 'center',
+                        'alignItems': 'center',
+                        'justifySelf': 'center',
+                        'alignSelf': 'center'
+                    }}
+                    slidesPerView={1}
+                    spaceBetween={10}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    breakpoints={{
+                        "@0.00": {
+                            slidesPerView: 4,
+                            spaceBetween: 10,
+                        },
+                        "@0.75": {
+                            slidesPerView: 7,
+                            spaceBetween: 20,
+                        },
+                        "@1.00": {
+                            slidesPerView: 7,
+                            spaceBetween: 20,
+                        },
+                        "@1.50": {
+                            slidesPerView: 7,
+                            spaceBetween: 20,
+                        },
+                    }}
+                    modules={[Autoplay, Navigation]}
+                    className="mySwiper3"
+                >
+                    <div className="brend">
+                        <div className="brandLogos">
+                            <div className="joys">
+                                <SwiperSlide className='brendCon'>
+                                    <div className="brandLogo">
+                                        <img src={asusLogo} alt="" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className='brendCon'>
+                                    <div className="brandLogo">
+                                        <img src={asusLogo} alt="" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className='brendCon'>
+                                    <div className="brandLogo">
+                                        <img src={asusLogo} alt="" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className='brendCon'>
+                                    <div className="brandLogo">
+                                        <img src={asusLogo} alt="" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className='brendCon'>
+                                    <div className="brandLogo">
+                                        <img src={asusLogo} alt="" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className='brendCon'>
+                                    <div className="brandLogo">
+                                        <img src={asusLogo} alt="" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className='brendCon'>
+                                    <div className="brandLogo">
+                                        <img src={asusLogo} alt="" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className='brendCon'>
+                                    <div className="brandLogo">
+                                        <img src={asusLogo} alt="" />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide className='brendCon'>
+                                    <div className="brandLogo">
+                                        <img src={asusLogo} alt="" />
+                                    </div>
+                                </SwiperSlide>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </Swiper>
-            </div>   
+            </div>
             <div className="services">
                 <span className="brandTitle">
                     <BiCategoryAlt className='lapIcon' />
@@ -239,7 +244,7 @@ function Main({ laptops, monitors, add }) {
                     </div>
                     <div>
                         <img className='sr1' src={s5} alt="" />
-                        <img className='sr2' src={s6} alt="" /> 
+                        <img className='sr2' src={s6} alt="" />
                     </div>
                 </div>
             </div>
@@ -250,7 +255,7 @@ function Main({ laptops, monitors, add }) {
                 </div>
                 <div className="laptops">
                     {
-                        laptops.map((laptop ) => (
+                        laptops.map((laptop) => (
                             <div className="servicess" key={laptop.id}>
                                 <div className="laptop">
                                     <div className="content">

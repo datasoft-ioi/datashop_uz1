@@ -3,7 +3,7 @@ import Navbar from './navbar/Navbar'
 import { BrowserRouter, Link, Route, Routes} from 'react-router-dom'
 import WebMenu from './WebMenu';
 import Shop from './shop/Shop';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import tufGamingPng from './texnoimg/tufgaming.png'
 import victus from './texnoimg/victus.png'
 import aser from './texnoimg/acer.png'
@@ -25,16 +25,27 @@ import { AiOutlineStar } from 'react-icons/ai'
 import { RxPerson } from 'react-icons/rx'
 import KorzinkaPustoy from './Korzina/KorzinkaPustoy';
 import Login from './profil/Login';
+import axios from 'axios';
 // booto bar uchun icoon ================= END
 
 
 function App() {
 
-  let baseURL = 'https://api.datashop.uz'
+  let baseURL = 'https://api.datashop.uz/products/'
+
+  const producRecuset = async () => {
+    const response = await axios.get(baseURL)
+    setLaptops(response.data)
+    console.log(response.data);
+  }
+
+  useEffect(() => {
+    producRecuset()
+  } , [])
 
 
 
-  const [laptops] = useState([
+  const [laptops , setLaptops] = useState([
     {
       id: 1,
       img: tufGamingPng,

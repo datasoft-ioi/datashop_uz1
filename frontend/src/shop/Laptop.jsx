@@ -90,7 +90,7 @@ export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
                 <div className="LaptopTovar">
                     <div className="LaptopImage">
                         <div className="LaptopImgg">
-                            <img className='laptopImgg' src={product.img} alt="" />
+                            <img className='laptopImgg' src={product.images[0].image} alt="" />
                         </div>
                         <div className="ImagesMini">
                             <div onClick={border} className={`miniBorder  ${borger}`}>

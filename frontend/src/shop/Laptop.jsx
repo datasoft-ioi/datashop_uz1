@@ -30,28 +30,10 @@ export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
     };
 
     const [borger, setBorder] = useState('non')
-    const [borgerr, setBorderr] = useState('non')
-    const [borgerrr, setBorderrr] = useState('non')
 
 
     function border() {
         setBorder('active')
-        setBorderr('non')
-        setBorderrr('non')
-
-    }
-    function borderr() {
-        setBorderr('active')
-        setBorder('non')
-        setBorderrr('non')
-
-
-    }
-    function borderrr() {
-
-        setBorderrr('active')
-        setBorder('non')
-        setBorderr('non')
     }
 
     function Addkor() {
@@ -93,15 +75,13 @@ export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
                             <img className='laptopImgg' src={product.images[0].image} alt="" />
                         </div>
                         <div className="ImagesMini">
-                            <div onClick={border} className={`miniBorder  ${borger}`}>
-                                <img src={adds.img} alt="" />
-                            </div>
-                            <div onClick={borderr} className={`miniBorder  ${borgerr}`} >
-                                <img src={adds.img} alt="" />
-                            </div>
-                            <div onClick={borderrr} className={`miniBorder  ${borgerrr}`}>
-                                <img src={adds.img} alt="" />
-                            </div>
+                            {
+                                product.images && product.images.map(item => (
+                                    <div key={product.id} onClick={border} className={`miniBorder  ${borger}`}>
+                                        <img src={item.image} alt="" />
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
                     <div className="LaptopInfo">

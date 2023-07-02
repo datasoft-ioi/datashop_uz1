@@ -3,7 +3,7 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 // import laptop from '../media/laptop.png'
 // import laptopuse from '../media/laptopuse.png'
 // import laptopbottom from '../media/vectusHeader.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { TbCircleCheck } from 'react-icons/tb'
 import PropTypes from 'prop-types';
@@ -11,7 +11,7 @@ import axios from 'axios'
 
 
 
-export default function Laptop({ adds, setAddKorzinka, FilterAdd }) {
+export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
 
     Laptop.propTypes = {
         adds: PropTypes.func.isRequired,
@@ -52,20 +52,22 @@ export default function Laptop({ adds, setAddKorzinka, FilterAdd }) {
     }
     const [savebar, setSavebar] = useState('saveKClose')
 
+    // const product = products.find((product) => product.id === parseInt(productId));
     const { productId } = useParams();
-    const [products, setProducts] = useState()
-    const product = products.find((product) => product.id === parseInt(productId));
-    console.log(productId);
+    const [product, setProduct] = useState();
 
     const productView = async () => {
         try {
             const response = await axios.get(`https://api.datashop.uz/products/${productId}`);
-            setProducts(response.data);
             console.log(response.data);
+            setProduct(response.data);
         } catch (error) {
-            console.error('Error fetching product data:', error);
+            console.error(error.response);
+            console.error(error.message);
         }
     };
+
+    console.log(product);
 
     useEffect(() => {
         productView();

@@ -31,7 +31,7 @@ import axios from 'axios';
 
 function App() {
 
-  let baseURL = 'https://api.datashop.uz/products/'
+  const baseURL = 'https://api.datashop.uz/products/'
 
   const producRecuset = async () => {
     const response = await axios.get(baseURL)
@@ -45,68 +45,7 @@ function App() {
 
 
 
-  const [laptops , setLaptops] = useState([
-    {
-      id: 1,
-      img: tufGamingPng,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-    {
-      id: 2,
-      img: aser,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-    {
-      id: 3,
-      img: victus,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-    {
-      id: 4,
-      img: tufGamingPng,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-    {
-      id: 5,
-      img: aser,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-    {
-      id: 6,
-      img: victus,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-    {
-      id: 7,
-      img: tufGamingPng,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-    {
-      id: 8,
-      img: aser,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-    {
-      id: 9,
-      img: victus,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-    {
-      id: 10,
-      img: tufGamingPng,
-      name: 'HP Victus 15 RTX 3050 / i5 12400f / 512 GB SSD..',
-      prise: '????'
-    },
-  ])
+  const [laptops , setLaptops] = useState([])
 
 
   const [monitors] = useState([
@@ -273,7 +212,7 @@ function App() {
         <Routes>
           <Route path='/' element={<WebMenu baseURL={baseURL} laptops={laptops} monitors={monitors} add={add} />} />
           <Route path='/shop' element={<Shop shops={shops} />} />
-          <Route path='/product/:productId' element={<Laptop adds={adds} setAddKorzinka={setAddKorzinka} FilterAdd={FilterAdd} products={laptops} />} />
+          <Route path='/product/:productId' element={<Laptop adds={adds} setAddKorzinka={setAddKorzinka} FilterAdd={FilterAdd} products={laptops} setProducts={setLaptops}/>} />
           <Route path='/korzinka' element={<Korzinka count={count} CountPlus={CountPlus} CountMinus={CountMinus} addKorzinka={addKorzinka} Delete={Delete} setAddKorzinka={setAddKorzinka} />} />
           <Route path='/zakaz' element={<Zakaz />} />
           <Route path='/kabinet' element={<Kabinet />} />

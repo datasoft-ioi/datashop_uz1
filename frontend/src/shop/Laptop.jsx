@@ -7,10 +7,11 @@ import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { TbCircleCheck } from 'react-icons/tb'
 import PropTypes from 'prop-types';
+import axios from 'axios'
 
 
 
-export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
+export default function Laptop({ adds, setAddKorzinka, FilterAdd }) {
 
     Laptop.propTypes = {
         adds: PropTypes.func.isRequired,
@@ -52,8 +53,23 @@ export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
     const [savebar, setSavebar] = useState('saveKClose')
 
     const { productId } = useParams();
+    const [products, setProducts] = useState()
     const product = products.find((product) => product.id === parseInt(productId));
+    console.log(productId);
 
+    const productView = async () => {
+        try {
+            const response = await axios.get(`https://api.datashop.uz/products/${productId}`);
+            setProducts(response.data);
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error fetching product data:', error);
+        }
+    };
+
+    useEffect(() => {
+        productView();
+    }, [productId]);
 
     return (
         <div className="Laptop">

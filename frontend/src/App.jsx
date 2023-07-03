@@ -26,6 +26,7 @@ import { RxPerson } from 'react-icons/rx'
 import KorzinkaPustoy from './Korzina/KorzinkaPustoy';
 import Login from './profil/Login';
 import axios from 'axios';
+import Loading from './Loading';
 // booto bar uchun icoon ================= END
 
 
@@ -35,7 +36,7 @@ function App() {
 
   const producRecuset = async () => {
     const response = await axios.get(baseURL)
-    setLaptops(response.data)
+    setProducts(response.data)
     console.log(response.data);
   }
 
@@ -45,7 +46,7 @@ function App() {
 
 
 
-  const [laptops , setLaptops] = useState([])
+  const [products , setProducts] = useState([])
 
 
   const [monitors] = useState([
@@ -136,7 +137,7 @@ function App() {
 
   // shop qismina produqtlani nomina qarab yubaradi ===============
   function AddLaptop() {
-    setShops(laptops)
+    setShops(products)
   }
   function AddMonitor() {
     setShops(monitors)
@@ -210,9 +211,9 @@ function App() {
           AddAksesuar={AddAksesuar}
           setFotChange={setFotChange} />
         <Routes>
-          <Route path='/' element={<WebMenu baseURL={baseURL} laptops={laptops} monitors={monitors} add={add} />} />
+          <Route path='/' element={<WebMenu baseURL={baseURL} laptops={products} monitors={monitors} add={add} />} />
           <Route path='/shop' element={<Shop shops={shops} />} />
-          <Route path='/product/:productId' element={<Laptop adds={adds} setAddKorzinka={setAddKorzinka} FilterAdd={FilterAdd} products={laptops} setProducts={setLaptops}/>} />
+          <Route path="/product/:productId" element={<Laptop adds={adds} setAddKorzinka={setAddKorzinka} FilterAdd={FilterAdd} products={products} setProducts={setProducts}/>} />
           <Route path='/korzinka' element={<Korzinka count={count} CountPlus={CountPlus} CountMinus={CountMinus} addKorzinka={addKorzinka} Delete={Delete} setAddKorzinka={setAddKorzinka} />} />
           <Route path='/zakaz' element={<Zakaz />} />
           <Route path='/kabinet' element={<Kabinet />} />
@@ -220,7 +221,7 @@ function App() {
           <Route path='/xabar' element={<Xabar />} />
           <Route path='/account' element={<Account />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/Избранное' element={<Izb add={add} laptops={laptops} />} />
+          <Route path='/Избранное' element={<Izb add={add} laptops={products} />} />
           <Route path='/korzinkaNoneProduct' element={<KorzinkaPustoy />} />
 
         </Routes>

@@ -8,6 +8,7 @@ import { Link, useParams } from 'react-router-dom'
 import { TbCircleCheck } from 'react-icons/tb'
 import PropTypes from 'prop-types';
 import axios from 'axios'
+import Loading from '../Loading'
 
 
 
@@ -52,26 +53,43 @@ export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
     }
     const [savebar, setSavebar] = useState('saveKClose')
 
-    // const product = products.find((product) => product.id === parseInt(productId));
+
+
+    // Product view ------------------------------------------------------------------------------------------
+
+
+
     const { productId } = useParams();
-    const [product, setProduct] = useState();
-
-    const productView = async () => {
-        try {
-            const response = await axios.get(`https://api.datashop.uz/products/${productId}`);
-            console.log(response.data);
-            setProduct(response.data);
-        } catch (error) {
-            console.error(error.response);
-            console.error(error.message);
-        }
-    };
-
-    console.log(product);
-
+    const [product, setProduct] = useState(null);
+  
     useEffect(() => {
-        productView();
+      const productView = async () => {
+        try {
+          const response = await axios.get(`https://api.datashop.uz/products/${productId}`);
+          console.log(response.data);
+          setProduct(response.data);
+        } catch (error) {
+          console.error(error.response);
+          console.error(error.message);
+        }
+      };
+  
+      productView();
     }, [productId]);
+  
+    // Check if the product is still loading
+    if (product === null) {
+      return <Loading/>;
+    }
+
+
+    // const product = products.find((product) => product.id === parseInt(productId));
+
+
+
+
+   // productView end  ----------------------------------------------------------------------------------
+    
 
     return (
         <div className="Laptop">

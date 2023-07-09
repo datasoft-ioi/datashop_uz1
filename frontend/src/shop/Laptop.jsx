@@ -61,25 +61,25 @@ export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
 
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
-  
+
     useEffect(() => {
-      const productView = async () => {
-        try {
-          const response = await axios.get(`https://api.datashop.uz/products/${productId}`);
-          console.log(response.data);
-          setProduct(response.data);
-        } catch (error) {
-          console.error(error.response);
-          console.error(error.message);
-        }
-      };
-  
-      productView();
+        const productView = async () => {
+            try {
+                const response = await axios.get(`https://api.datashop.uz/products/${productId}`);
+                console.log(response.data);
+                setProduct(response.data);
+            } catch (error) {
+                console.error(error.response);
+                console.error(error.message);
+            }
+        };
+
+        productView();
     }, [productId]);
-  
+
     // Check if the product is still loading
     if (product === null) {
-      return <Loading/>;
+        return <Loading />;
     }
 
 
@@ -88,8 +88,32 @@ export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
 
 
 
-   // productView end  ----------------------------------------------------------------------------------
-    
+    // productView end  ----------------------------------------------------------------------------------
+
+    //    add card -----------------------------------------
+
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    useEffect(() => {
+        const postToken = async () => {
+            const url = "https://api.datashop.uz/cart/"
+            const body = {
+                token: token.tokens.access,
+                username: token.username
+            }
+            try {
+                const response = await axios.post(url, body)
+                console.log(response.data);
+            }
+            catch (err) {
+                console.log(err.message);
+            }
+        }
+        postToken()
+    }, [])
+
+    //    add card -----------------------------------------
+
 
     return (
         <div className="Laptop">

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function Korzinka({addKorzinka , Delete  , CountPlus , count , CountMinus}) {
+function Korzinka({ addKorzinka, Delete, CountPlus, count, CountMinus }) {
     Korzinka.propTypes = {
         addKorzinka: PropTypes.array.isRequired,
         Delete: PropTypes.func.isRequired,
@@ -9,18 +11,46 @@ function Korzinka({addKorzinka , Delete  , CountPlus , count , CountMinus}) {
         CountPlus: PropTypes.func.isRequired,
         count: PropTypes.number.isRequired,
         CountMinus: PropTypes.func.isRequired
-      };
+    };
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    const [products, setProducts] = useState([])
+
+    const URL = "https://api.datashop.uz/"
+
+    const addProduct = async () => {
+        const url = "https://api.datashop.uz/cart/";
+
+        const headers = {
+            'Authorization': `Bearer ${token.tokens.access}`
+        };
+
+        try {
+            const response = await axios.get(url, { headers });
+            console.log(response.data);
+            setProducts(response.data)
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
+        addProduct()
+    } , [])
+    
+    console.log(products);
+
 
     return (
         <div className="korzinka">
             <div className="products">
                 <ul className="linkCategory">
                     <li>Главная</li>
-                    <li> / Корзина</li>  
+                    <li> / Корзина</li>
                 </ul>
                 <div className="korzinkaProduct">
                     <div className="korzinkaTitle">
-                        <h1>Корзина</h1> 
+                        <h1>Корзина</h1>
                         <span>Товаров в корзине ({addKorzinka.length})</span>
                     </div>
                     <div className="korzinkaElment">
@@ -33,30 +63,30 @@ function Korzinka({addKorzinka , Delete  , CountPlus , count , CountMinus}) {
                         </div>
                         <div className="korzinkaProducts">
                             {
-                                addKorzinka.map(addKorzin => (
-                                <div className="Kproduct" key={addKorzin.id}>
-                                    <div className="KproductInfo">
-                                        <div className="KproductImg">
-                                            <img src={addKorzin.img} alt="" />
+                                products.map(product => (
+                                    <div className="Kproduct" key={product.id}>
+                                        <div className="KproductInfo">
+                                            <div className="KproductImg">
+                                                <img src={URL + product.products[0].images[0]} alt="" />
+                                            </div>
+                                            <div className="productInfo">
+                                                <span className='productInfo1'>{product.products[0].name}</span>
+                                                <span className='productInfo2'>Ноутбук</span>
+                                                <span className='resPrise'>{product.products[0].price}</span>
+                                                <span className='productInfo3' onClick={() => Delete(product.id)}>Удалить</span>
+                                            </div>
                                         </div>
-                                        <div className="productInfo">
-                                            <span className='productInfo1'>HP Victus 15 RTX 3050...</span>
-                                            <span className='productInfo2'>Ноутбук</span>
-                                            <span className='resPrise'>6 800 000 СУМ</span>
-                                            <span className='productInfo3' onClick={() => Delete(addKorzin.id)}>Удалить</span>
+                                        <div className="KproductEnd">
+                                            <div className="KproductCount">
+                                                <button onClick={CountMinus}>-</button>
+                                                <span>{product.quantity}</span>
+                                                <button onClick={CountPlus}>+</button>
+                                            </div>
+                                            <div className="KproductPrice">
+                                                <span>{product.products[0].price}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="KproductEnd">
-                                        <div className="KproductCount">
-                                            <button onClick={CountMinus}>-</button>
-                                            <span>{count}</span>
-                                            <button onClick={CountPlus}>+</button>
-                                        </div>
-                                        <div className="KproductPrice">
-                                            <span>6 800 000 СУМ</span>
-                                        </div>
-                                    </div>
-                                </div>
                                 ))
                             }
                         </div>

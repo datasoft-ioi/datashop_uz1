@@ -85,35 +85,7 @@ export default function Laptop({ adds, setAddKorzinka, FilterAdd, products }) {
 
     // const product = products.find((product) => product.id === parseInt(productId));
 
-
-
-
    // productView end  ----------------------------------------------------------------------------------
-
-    //  add korzinka ---------------------------------------------------------------------------------------
-
-        const token = JSON.parse(localStorage.getItem('token'))
-
-        useEffect(() => {
-            const postToken = async () => {
-                const url = "https://api.datashop.uz/cart/"
-                const body = {
-                    token: token.tokens.access,
-                    username: token.username
-                }
-                try {
-                    const response = await axios.post(url , body)
-                    console.log(response.data);
-                }
-                catch (err) {
-                    console.log(err.message);
-                }
-            }
-            postToken()
-        }, [])
-
-    // console.log(local);
-    //    add korzinka -------------------------------------------------------------------------------------
     
 
     return (

@@ -1,6 +1,6 @@
 import userIcon from '../media/User Rounded.svg'
 import lockIcon from '../media/lock.svg'
-import { useRef, useState } from 'react';
+import { useRef, useState , useEffect} from 'react';
 import axios from 'axios';
 import { Link ,useNavigate } from 'react-router-dom';
 
@@ -57,7 +57,6 @@ export default function Accaunt() {
             email: email,
             password: password1
         }
-
         try{
             const postRegister = await axios.post(url ,body)
             console.log(postRegister.data );
@@ -70,6 +69,13 @@ export default function Accaunt() {
             setLink("/account")
         }
     }
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+          navigate('/kabinet');
+        }
+      }, []);
 
 
     return (

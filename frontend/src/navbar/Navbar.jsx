@@ -135,6 +135,8 @@ function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange,
         navigate('/login');
       };
 
+    const token = JSON.parse(localStorage.getItem("token"));
+
     return (
         <nav className={scrolled}>
             <div className="navTop">
@@ -168,7 +170,7 @@ function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange,
                     <div className="navBtns">
                         <Link to='/korzinka' onClick={() => setFotChange('none')}><button className='navKorzinkabutton'><img src={shopIcon} alt="" /> <span>Корзина</span></button></Link>
                         <Link to='/Избранное'><button className='navIzbbutton'><img src={izbIcon} alt="" /> <span>Избранное</span></button></Link>
-                        <Link to='/login'> <button onClick={profil}> <span className='navProfilbutton'><img src={profilIcon} alt="" />   profil  </span></button></Link>
+                        <Link to='/login'> <button onClick={profil}> <span className='navProfilbutton'><img src={profilIcon} alt="" />{token ? token.username : 'Profil'}</span></button></Link>
                         {/* <Link to='/account'> <button  onClick={profil}> <span className='navProfilbutton'><img src={profilIcon} alt="" /> {ApiUser.username ? ApiUser.username : "  Профиль" } </span></button></Link> */}
                         <span className='kLenght'>{leng.length}</span>
                         <div className={pr}>

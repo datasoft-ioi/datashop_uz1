@@ -247,7 +247,7 @@ function App() {
             <FiShoppingCart size={'18px'} />
             <span>Корзина</span>
           </button></Link>
-          <Link to='/account'><button>
+          <Link to='/login'><button>
             <RxPerson size={'18px'} />
             <span>Профиль</span>
           </button></Link>

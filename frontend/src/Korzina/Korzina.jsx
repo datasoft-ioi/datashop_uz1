@@ -36,8 +36,27 @@ function Korzinka({ addKorzinka, Delete, CountPlus, count, CountMinus }) {
 
     useEffect(() => {
         addProduct()
-    } , [])
-    
+    }, [])
+
+
+    const DeleteCard = async (productId) => {
+        const url = `https://api.datashop.uz/cart/${productId}`;
+
+        const headers = {
+            'Authorization': `Bearer ${token.tokens.access}`
+        };
+
+        try {
+            const response = await axios.delete(url, { headers });
+            console.log('Karta muvaffaqiyatli o\'chirildi.');
+            // Mahsulotni o'chirishdan so'ng sahifani yangilash uchun kerakli funksiyani chaqirish
+            addProduct();
+        } catch (error) {
+            console.error('Karta o\'chirishda xatolik yuz berdi:', error.message);
+        }
+    }
+
+
     console.log(products);
 
 
@@ -73,7 +92,7 @@ function Korzinka({ addKorzinka, Delete, CountPlus, count, CountMinus }) {
                                                 <span className='productInfo1'>{product.products[0].name}</span>
                                                 <span className='productInfo2'>Ноутбук</span>
                                                 <span className='resPrise'>{product.products[0].price}</span>
-                                                <span className='productInfo3' onClick={() => Delete(product.id)}>Удалить</span>
+                                                <span className='productInfo3' onClick={() => DeleteCard(product.id)}>Удалить</span>
                                             </div>
                                         </div>
                                         <div className="KproductEnd">

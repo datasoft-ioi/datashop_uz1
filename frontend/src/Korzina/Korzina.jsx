@@ -48,11 +48,8 @@ function Korzinka({ addKorzinka, Delete, CountPlus, count, CountMinus }) {
 
         try {
             const response = await axios.delete(url, { headers });
-            console.log('Karta muvaffaqiyatli o\'chirildi.');
-            // Mahsulotni o'chirishdan so'ng sahifani yangilash uchun kerakli funksiyani chaqirish
             addProduct();
         } catch (error) {
-            console.error('Karta o\'chirishda xatolik yuz berdi:', error.message);
         }
     }
 

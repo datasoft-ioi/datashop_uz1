@@ -1,6 +1,6 @@
 import userIcon from '../media/User Rounded.svg'
 import lockIcon from '../media/lock.svg'
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { Link , useNavigate} from 'react-router-dom';
 
@@ -52,13 +52,19 @@ export default function Login() {
             const postLogin = await axios.post(url, body)
             localStorage.setItem('token', JSON.stringify(postLogin.data))
             console.log(postLogin.data);
-            navigate('/kabinet')
+            navigate("/kabinet")
         }
         catch (err) {
             console.log(err);
             alert(err)
         }
     }
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+          navigate('/kabinet');
+        }
+      }, []);
     return (
         <div className="Accaunt">
             <h1 className="accountTitle">Вход </h1>

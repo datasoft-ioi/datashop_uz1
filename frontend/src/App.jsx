@@ -184,6 +184,9 @@ function App() {
       setCount(0)
     }
   }
+  
+  const [leng, setLeng] = useState(0)
+  console.log(leng);
 
   return (
     <>
@@ -210,12 +213,13 @@ function App() {
           AddMonitor={AddMonitor}
           AddSmartfon={AddSmartfon}
           AddAksesuar={AddAksesuar}
-          setFotChange={setFotChange} />
+          setFotChange={setFotChange} 
+          leng={leng} />
         <Routes>
           <Route path='/' element={<WebMenu baseURL={baseURL} laptops={products} monitors={monitors} add={add} />} />
           <Route path='/shop' element={<Shop shops={shops} />} />
           <Route path="/product/:productId" element={<Laptop adds={adds} setAddKorzinka={setAddKorzinka} FilterAdd={FilterAdd} products={products} setProducts={setProducts}/>} />
-          <Route path='/korzinka' element={<Korzinka count={count} CountPlus={CountPlus} CountMinus={CountMinus} addKorzinka={addKorzinka} Delete={Delete} setAddKorzinka={setAddKorzinka} />} />
+          <Route path='/korzinka' element={<Korzinka setLeng={setLeng} count={count} CountPlus={CountPlus} CountMinus={CountMinus} addKorzinka={addKorzinka} Delete={Delete} setAddKorzinka={setAddKorzinka} />} />
           <Route path='/zakaz' element={<Zakaz />} />
           <Route path='/kabinet' element={<Kabinet />} />
           <Route path='/profilZakaz' element={<MoyZakaz />} />

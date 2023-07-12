@@ -2,7 +2,7 @@ import userIcon from '../media/User Rounded.svg'
 import lockIcon from '../media/lock.svg'
 import { useRef, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate } from 'react-router-dom';
 
 
 export default function Accaunt() {
@@ -47,6 +47,8 @@ export default function Accaunt() {
     };
     {showAlert && alert("Barcha maydonlar to'ldirilishi kerak!")}
 
+    const navigate = useNavigate()
+
 
     const requestRegister = async () => {
         const url = "https://api.datashop.uz/user/register/"
@@ -60,6 +62,7 @@ export default function Accaunt() {
             const postRegister = await axios.post(url ,body)
             console.log(postRegister.data );
             setLink("/login")
+            navigate('/login');
         }
         catch(err){
             console.log(err);

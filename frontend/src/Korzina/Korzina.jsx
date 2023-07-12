@@ -3,59 +3,79 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function Korzinka({ addKorzinka, Delete, CountPlus, count, CountMinus }) {
+function Korzinka({ addKorzinka, Delete, CountPlus, count, CountMinus, setLeng }) {
     Korzinka.propTypes = {
         addKorzinka: PropTypes.array.isRequired,
         Delete: PropTypes.func.isRequired,
         setAddKorzinka: PropTypes.func.isRequired,
         CountPlus: PropTypes.func.isRequired,
         count: PropTypes.number.isRequired,
-        CountMinus: PropTypes.func.isRequired
+        CountMinus: PropTypes.func.isRequired,
     };
-    const token = JSON.parse(localStorage.getItem('token'))
+    const token = JSON.parse(localStorage.getItem("token"));
 
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0); // Yangi holat
 
-    const URL = "https://api.datashop.uz/"
+    const URL = "https://api.datashop.uz/";
 
     const addProduct = async () => {
         const url = "https://api.datashop.uz/cart/";
 
         const headers = {
-            'Authorization': `Bearer ${token.tokens.access}`
+            Authorization: `Bearer ${token.tokens.access}`,
         };
 
         try {
             const response = await axios.get(url, { headers });
             console.log(response.data);
-            setProducts(response.data)
+            setProducts(response.data);
+
+            // Mahsulatlar ro'yxati o'zgarayotganida total narxni hisoblash
+            calculateTotalPrice(response.data);
         } catch (error) {
             console.error(error);
         }
     };
 
     useEffect(() => {
-        addProduct()
-    }, [])
+        addProduct();
+    }, []);
 
+    const calculateTotalPrice = (products) => {
+        let total = 0;
+
+        products.forEach((product) => {
+            const price = product.products[0].price;
+            const quantity = product.quantity;
+            const productTotal = price * quantity;
+            total += productTotal + 30;
+        });
+
+        setTotalPrice(total);
+    };
+
+    if (products.length >= 0) {
+        setLeng(0);
+    } else {
+        setLeng(products.length);
+    }
 
     const DeleteCard = async (productId) => {
         const url = `https://api.datashop.uz/cart/${productId}`;
 
         const headers = {
-            'Authorization': `Bearer ${token.tokens.access}`
+            Authorization: `Bearer ${token.tokens.access}`,
         };
 
         try {
             const response = await axios.delete(url, { headers });
-            addProduct();
-        } catch (error) {
-        }
-    }
 
+            addProduct();
+        } catch (error) { }
+    };
 
     console.log(products);
-
 
     return (
         <div className="korzinka">
@@ -88,7 +108,7 @@ function Korzinka({ addKorzinka, Delete, CountPlus, count, CountMinus }) {
                                             <div className="productInfo">
                                                 <span className='productInfo1'>{product.products[0].name}</span>
                                                 <span className='productInfo2'>Ноутбук</span>
-                                                <span className='resPrise'>{product.products[0].price}</span>
+                                                <span className='resPrise'>{product.products[0].price} 000</span>
                                                 <span className='productInfo3' onClick={() => DeleteCard(product.id)}>Удалить</span>
                                             </div>
                                         </div>
@@ -99,7 +119,7 @@ function Korzinka({ addKorzinka, Delete, CountPlus, count, CountMinus }) {
                                                 <button onClick={CountPlus}>+</button>
                                             </div>
                                             <div className="KproductPrice">
-                                                <span>{product.products[0].price}</span>
+                                                <span>{product.products[0].price} 000 so'm</span>
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +134,7 @@ function Korzinka({ addKorzinka, Delete, CountPlus, count, CountMinus }) {
                     <div className="korzinkaInfoBarInfo">
                         <div className="korzinkaInfoBarTitle">
                             <h1>Итого:</h1>
-                            <span>6 800 000 СУМ</span>
+                            <span>{totalPrice} 000 so'm</span>
                         </div>
                         <div className="korzinkaInfoBarFon">
                             <span className='korzinkaInfoBarFon1'>

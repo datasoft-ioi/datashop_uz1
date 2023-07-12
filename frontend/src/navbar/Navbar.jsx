@@ -14,7 +14,7 @@ import { IoClose } from 'react-icons/io5'
 import { BsLaptop } from 'react-icons/bs'
 import { MdOutlineNavigateNext } from 'react-icons/md'
 import Pr from './Pr'
-import { Link } from 'react-router-dom'
+import { Link   , useNavigate} from 'react-router-dom'
 import { useEffect } from 'react'
 import izbIcon from '../media/izb.svg'
 import { FiPhone } from 'react-icons/fi'
@@ -23,7 +23,7 @@ import axios from 'axios'
 
 
 
-function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange, addKorzinka }) {
+function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange, addKorzinka , leng }) {
     Navbar.propTypes = {
         AddLaptop: PropTypes.func.isRequired,
         AddMonitor: PropTypes.func.isRequired,
@@ -124,6 +124,16 @@ function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange,
         catgoRrequest()
     } , [])
 
+    // logut 
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        // Foydalanuvchi ma'lumotlarini tozalash
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+    
+        // Foydalanuvchini tizimning kirish sahifasiga yo'naltirish
+        navigate('/login');
+      };
 
     return (
         <nav className={scrolled}>
@@ -158,16 +168,16 @@ function Navbar({ AddLaptop, AddMonitor, AddSmartfon, AddAksesuar, setFotChange,
                     <div className="navBtns">
                         <Link to='/korzinka' onClick={() => setFotChange('none')}><button className='navKorzinkabutton'><img src={shopIcon} alt="" /> <span>Корзина</span></button></Link>
                         <Link to='/Избранное'><button className='navIzbbutton'><img src={izbIcon} alt="" /> <span>Избранное</span></button></Link>
-                        <Link to='/account'> <button onClick={profil}> <span className='navProfilbutton'><img src={profilIcon} alt="" />   profil  </span></button></Link>
+                        <Link to='/login'> <button onClick={profil}> <span className='navProfilbutton'><img src={profilIcon} alt="" />   profil  </span></button></Link>
                         {/* <Link to='/account'> <button  onClick={profil}> <span className='navProfilbutton'><img src={profilIcon} alt="" /> {ApiUser.username ? ApiUser.username : "  Профиль" } </span></button></Link> */}
-                        <span className='kLenght'>{addKorzinka.length}</span>
+                        <span className='kLenght'>{leng.length}</span>
                         <div className={pr}>
                             <p className="profilTitle">Name</p>
                             <div className="profilPage">
                                 <Link to='/kabinet'><span><img src={profilIcon1} alt="" /> Личный кабинет</span></Link>
                                 <Link to='/profilZakaz'><span><img src={profilIcon2} alt="" /> Мои заказы</span></Link>
                                 <Link to='/xabar'><span><img src={profilIcon3} alt="" /> Уведомления </span></Link>
-                                <Link to='/'><span><img src={profilIcon4} alt="" /> Выйти </span></Link>
+                                <span onClick={handleLogout}><img src={profilIcon4} alt="" /> Выйти </span>
                             </div>
                         </div>
                     </div>
